@@ -1,2 +1,5 @@
 # Virtual Env with Django installed internally.
 venv
+
+# Database
+db.sqlite3
