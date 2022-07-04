@@ -1,0 +1,31 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'form.css' %}">
+    <title>FORM</title>
+</head>
+<body>
+    <nav>
+        <span id="title">Expenses Control</span>
+    </nav>
+    <section class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+            {{ form.as_table }}
+            </table>
+            <div class="btns">
+                {% if expense%}
+                <button class="btn" type="submit"><a href="{% url 'url_delete' expense.id %}">Deletar</a></button>
+                {%endif%}
+                <button class="btn" type="submit">Enviar</button>
+            </div>
+            
+        </form>
+    </section>
+</body>
+</html>

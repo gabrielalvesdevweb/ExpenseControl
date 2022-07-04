@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{%static 'home.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+</head>
+<body>
+    <nav>
+        <span id="title">Expenses Control</span>
+    </nav>
+    <section class="list">
+        <div>
+            <ul> 
+            {% for expense in expenses%}
+            <a href="{% url 'url_update' expense.id %}"><li>{{ expense }} - R$ {{ expense.value }}</li></a>
+            {%endfor%}
+            </ul>
+        </div>
+    </section>
+   
+    <div>
+        <button><a href="{% url 'url_form' %}">Add Expense</a></button>
+    </div>
+  
+</body>
+</html>
